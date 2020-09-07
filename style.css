@@ -1,3 +1,9 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
 .colorpicker {
   float: left;
   margin: 2em;
@@ -5,11 +11,11 @@
 }
 
 .result {
-  display: inline-block;
   margin: 2em;
 }
 
 .resultColor {
   width: 10em;
   height: 5em;
+  border-radius: 5px;
 }

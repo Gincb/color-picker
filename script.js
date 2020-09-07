@@ -1,14 +1,20 @@
 "use strict";
 
+window.addEventListener("load", getDefaultColor);
+
 let colorPicker = document.querySelector("#colorpicker");
 let resultColor = document.querySelector("#resultColor");
 let resultHEX = document.querySelector(".hex");
 let resultRGB = document.querySelector(".rgb");
 let resultHSL = document.querySelector(".hsl");
 
-colorPicker.addEventListener("change", getColor);
+function getDefaultColor() {
+  resultColor.style.backgroundColor = colorPicker.value;
+  colorPicker.addEventListener("change", getColor);
+}
 
 function getColor() {
+  resultColor.style.backgroundColor = colorPicker.value;
   resultColor.style.backgroundColor = colorPicker.value;
   getHex();
   resultRGB.textContent = getRGB(colorPicker.value);
