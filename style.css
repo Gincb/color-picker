@@ -1,0 +1,15 @@
+.colorpicker {
+  float: left;
+  margin: 2em;
+  width: 10em;
+}
+
+.result {
+  display: inline-block;
+  margin: 2em;
+}
+
+.resultColor {
+  width: 10em;
+  height: 5em;
+}
