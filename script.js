@@ -12,10 +12,7 @@ function getColor() {
   resultColor.style.backgroundColor = colorPicker.value;
   getHex();
   resultRGB.textContent = getRGB(colorPicker.value);
-
-  let sliceRGB = resultRGB.textContent.slice(4, -1);
-  let splitRGB = sliceRGB.split(",");
-  resultHSL.textContent = getHSL(splitRGB[0], splitRGB[1], splitRGB[2]);
+  getHSL();
 }
 
 function getHex() {
@@ -43,7 +40,7 @@ function getRGB(hex) {
   return "rgb(" + +r + ", " + +g + ", " + +b + ")";
 }
 
-function getHSL(r, g, b) {
+function convertToHSL(r, g, b) {
   r /= 255;
   g /= 255;
   b /= 255;
@@ -79,4 +76,10 @@ function getHSL(r, g, b) {
   l *= 100;
 
   return `hsl(${Math.round(h)}%, ${Math.round(s)}%, ${Math.round(l)}%)`; // just for testing
+}
+
+function getHSL() {
+  let sliceRGB = resultRGB.textContent.slice(4, -1);
+  let splitRGB = sliceRGB.split(",");
+  resultHSL.textContent = convertToHSL(splitRGB[0], splitRGB[1], splitRGB[2]);
 }
