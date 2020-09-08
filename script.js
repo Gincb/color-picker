@@ -14,15 +14,16 @@ function getDefaultColor() {
 }
 
 function getColor() {
-  resultColor.style.backgroundColor = colorPicker.value;
-  resultColor.style.backgroundColor = colorPicker.value;
-  getHex();
-  resultRGB.textContent = getRGB(colorPicker.value);
+  resultColor.style.backgroundColor = getHex(colorPicker.value);
+  resultHEX.textContent = getHex(colorPicker.value);
+  resultRGB.textContent = `${getRGB(colorPicker.value).r}, ${
+    getRGB(colorPicker.value).g
+  }, ${getRGB(colorPicker.value).b}`;
   getHSL();
 }
 
-function getHex() {
-  resultHEX.textContent = colorPicker.value;
+function getHex(HEXResult) {
+  return HEXResult;
 }
 
 function getRGB(hex) {
@@ -42,8 +43,7 @@ function getRGB(hex) {
     g = "0x" + hex[3] + hex[4];
     b = "0x" + hex[5] + hex[6];
   }
-
-  return "rgb(" + +r + ", " + +g + ", " + +b + ")";
+  return { r: +r, g: +g, b: +b };
 }
 
 function convertToHSL(r, g, b) {
@@ -81,11 +81,15 @@ function convertToHSL(r, g, b) {
   s *= 100;
   l *= 100;
 
-  return `hsl(${Math.round(h)}%, ${Math.round(s)}%, ${Math.round(l)}%)`; // just for testing
+  return { h: Math.round(h), s: Math.round(s), l: Math.round(l) }; // just for testing
 }
 
 function getHSL() {
-  let sliceRGB = resultRGB.textContent.slice(4, -1);
-  let splitRGB = sliceRGB.split(",");
-  resultHSL.textContent = convertToHSL(splitRGB[0], splitRGB[1], splitRGB[2]);
+  let HSLResult = convertToHSL(
+    getRGB(colorPicker.value).r,
+    getRGB(colorPicker.value).g,
+    getRGB(colorPicker.value).b
+  );
+
+  resultHSL.textContent = `${HSLResult.h}, ${HSLResult.s}%, ${HSLResult.l}%`;
 }
