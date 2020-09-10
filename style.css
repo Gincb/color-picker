@@ -13,7 +13,7 @@
 .colorpicker {
   margin: 2em;
   padding: 0;
-  width: 10em;
+  width: 15em;
   height: 10em;
   border: none;
 }
@@ -21,7 +21,7 @@
 .result > .picked-color,
 .color {
   background-color: #000;
-  width: 7em;
-  height: 3em;
+  width: 15em;
+  height: 8em;
   border-radius: 5px;
 }
