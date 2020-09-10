@@ -143,13 +143,18 @@ function selectOption() {
   }
 }
 
+//Get random number
+function getRandom(min, max) {
+  return Math.round(Math.random() * (max - min) + min);
+}
+
 //Analogous
 
 function shiftHAnalogous(h) {
-  let h1 = h + 30;
-  let h2 = h + 60;
-  let h3 = h - 30;
-  let h4 = h - 60;
+  let h1 = getRandom(h, 360);
+  let h2 = getRandom(h, 360);
+  let h3 = getRandom(0, h);
+  let h4 = getRandom(0, h);
 
   return { h1, h2, h3, h4 };
 }
@@ -243,19 +248,19 @@ function analogous() {
 //Shifting S and L for other options
 
 function shiftS(s) {
-  let s1 = s + 10;
-  let s2 = s + 30;
-  let s3 = s - 10;
-  let s4 = s - 30;
+  let s1 = getRandom(s, 100);
+  let s2 = getRandom(s, 100);
+  let s3 = getRandom(0, s);
+  let s4 = getRandom(0, s);
 
   return { s1, s2, s3, s4 };
 }
 
 function shiftL(l) {
-  let l1 = l + 10;
-  let l2 = l + 30;
-  let l3 = l - 10;
-  let l4 = l - 30;
+  let l1 = getRandom(l, 100);
+  let l2 = getRandom(l, 100);
+  let l3 = getRandom(0, l);
+  let l4 = getRandom(0, l);
 
   return { l1, l2, l3, l4 };
 }
@@ -463,17 +468,17 @@ function triadArray() {
     hex: hslToHex(
       shiftHTriadComplementary(getHSL().h).h60,
       getHSL().s,
-      shiftL(getHSL().l).l4
+      shiftL(getHSL().l).l1
     ),
     hsl: `${shiftHTriadComplementary(getHSL().h).h60}, ${getHSL().s}%, ${
-      shiftL(getHSL().l).l4
+      shiftL(getHSL().l).l1
     }%`,
     rgb: `${
       getRGB(
         hslToHex(
           shiftHTriadComplementary(getHSL().h).h60,
           getHSL().s,
-          shiftL(getHSL().l).l4
+          shiftL(getHSL().l).l1
         )
       ).r
     }, ${
@@ -481,7 +486,7 @@ function triadArray() {
         hslToHex(
           shiftHTriadComplementary(getHSL().h).h60,
           getHSL().s,
-          shiftL(getHSL().l).l4
+          shiftL(getHSL().l).l1
         )
       ).g
     }, ${
@@ -489,7 +494,7 @@ function triadArray() {
         hslToHex(
           shiftHTriadComplementary(getHSL().h).h60,
           getHSL().s,
-          shiftL(getHSL().l).l4
+          shiftL(getHSL().l).l1
         )
       ).b
     }`,
