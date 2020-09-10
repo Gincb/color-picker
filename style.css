@@ -20,11 +20,8 @@
 
 .result > .picked-color,
 .color {
+  background-color: #000;
   width: 7em;
   height: 3em;
   border-radius: 5px;
-}
-
-.color {
-  background-color: rgb(65, 40, 40);
 }

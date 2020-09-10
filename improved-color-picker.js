@@ -9,7 +9,6 @@ let resultRGB = document.querySelector(".rgb");
 let resultHSL = document.querySelector(".hsl");
 
 function getDefaultColor() {
-  resultColor.style.backgroundColor = colorPicker.value;
   colorPicker.addEventListener("change", getColor);
 }
 
@@ -129,17 +128,17 @@ selectScheme.addEventListener("change", selectOption);
 
 function selectOption() {
   if (selectScheme.value == "analogous") {
-    analogous();
+    addColors(analogousArray);
   } else if (selectScheme.value == "monochromatic") {
-    monochromatic();
+    addColors(monochromaticArray);
   } else if (selectScheme.value == "triad") {
-    triad();
+    addColors(triadArray);
   } else if (selectScheme.value == "complementary") {
-    complementary();
+    addColors(complementaryArray);
   } else if (selectScheme.value == "compound") {
     compound();
   } else if (selectScheme.value == "shades") {
-    shades();
+    addColors(shadesArray);
   }
 }
 
@@ -211,40 +210,6 @@ function analogousArray() {
   return { color1, color2, color3, color4 };
 }
 
-function analogous() {
-  //color1
-  document.querySelector(
-    "#color1"
-  ).style.backgroundColor = analogousArray().color1.hex;
-  document.querySelector(".hex1").textContent = analogousArray().color1.hex;
-  document.querySelector(".rgb1").textContent = analogousArray().color1.rgb;
-  document.querySelector(".hsl1").textContent = analogousArray().color1.hsl;
-
-  //color2
-  document.querySelector(
-    "#color2"
-  ).style.backgroundColor = analogousArray().color2.hex;
-  document.querySelector(".hex2").textContent = analogousArray().color2.hex;
-  document.querySelector(".rgb2").textContent = analogousArray().color2.rgb;
-  document.querySelector(".hsl2").textContent = analogousArray().color2.hsl;
-
-  //color3
-  document.querySelector(
-    "#color3"
-  ).style.backgroundColor = analogousArray().color3.hex;
-  document.querySelector(".hex3").textContent = analogousArray().color3.hex;
-  document.querySelector(".rgb3").textContent = analogousArray().color3.rgb;
-  document.querySelector(".hsl3").textContent = analogousArray().color3.hsl;
-
-  //color4
-  document.querySelector(
-    "#color4"
-  ).style.backgroundColor = analogousArray().color4.hex;
-  document.querySelector(".hex4").textContent = analogousArray().color4.hex;
-  document.querySelector(".rgb4").textContent = analogousArray().color4.rgb;
-  document.querySelector(".hsl4").textContent = analogousArray().color4.hsl;
-}
-
 //Shifting S and L for other options
 
 function shiftS(s) {
@@ -309,40 +274,6 @@ function monochromaticArray() {
   };
 
   return { color1, color2, color3, color4 };
-}
-
-function monochromatic() {
-  //color1
-  document.querySelector(
-    "#color1"
-  ).style.backgroundColor = monochromaticArray().color1.hex;
-  document.querySelector(".hex1").textContent = monochromaticArray().color1.hex;
-  document.querySelector(".rgb1").textContent = monochromaticArray().color1.rgb;
-  document.querySelector(".hsl1").textContent = monochromaticArray().color1.hsl;
-
-  //color2
-  document.querySelector(
-    "#color2"
-  ).style.backgroundColor = monochromaticArray().color2.hex;
-  document.querySelector(".hex2").textContent = monochromaticArray().color2.hex;
-  document.querySelector(".rgb2").textContent = monochromaticArray().color2.rgb;
-  document.querySelector(".hsl2").textContent = monochromaticArray().color2.hsl;
-
-  //color3
-  document.querySelector(
-    "#color3"
-  ).style.backgroundColor = monochromaticArray().color3.hex;
-  document.querySelector(".hex3").textContent = monochromaticArray().color3.hex;
-  document.querySelector(".rgb3").textContent = monochromaticArray().color3.rgb;
-  document.querySelector(".hsl3").textContent = monochromaticArray().color3.hsl;
-
-  //color4
-  document.querySelector(
-    "#color4"
-  ).style.backgroundColor = monochromaticArray().color4.hex;
-  document.querySelector(".hex4").textContent = monochromaticArray().color4.hex;
-  document.querySelector(".rgb4").textContent = monochromaticArray().color4.rgb;
-  document.querySelector(".hsl4").textContent = monochromaticArray().color4.hsl;
 }
 
 //Triad
@@ -503,40 +434,6 @@ function triadArray() {
   return { color1, color2, color3, color4 };
 }
 
-function triad() {
-  //color1
-  document.querySelector(
-    "#color1"
-  ).style.backgroundColor = triadArray().color1.hex;
-  document.querySelector(".hex1").textContent = triadArray().color1.hex;
-  document.querySelector(".rgb1").textContent = triadArray().color1.rgb;
-  document.querySelector(".hsl1").textContent = triadArray().color1.hsl;
-
-  //color2
-  document.querySelector(
-    "#color2"
-  ).style.backgroundColor = triadArray().color2.hex;
-  document.querySelector(".hex2").textContent = triadArray().color2.hex;
-  document.querySelector(".rgb2").textContent = triadArray().color2.rgb;
-  document.querySelector(".hsl2").textContent = triadArray().color2.hsl;
-
-  //color3
-  document.querySelector(
-    "#color3"
-  ).style.backgroundColor = triadArray().color3.hex;
-  document.querySelector(".hex3").textContent = triadArray().color3.hex;
-  document.querySelector(".rgb3").textContent = triadArray().color3.rgb;
-  document.querySelector(".hsl3").textContent = triadArray().color3.hsl;
-
-  //color4
-  document.querySelector(
-    "#color4"
-  ).style.backgroundColor = triadArray().color4.hex;
-  document.querySelector(".hex4").textContent = triadArray().color4.hex;
-  document.querySelector(".rgb4").textContent = triadArray().color4.rgb;
-  document.querySelector(".hsl4").textContent = triadArray().color4.hsl;
-}
-
 //Complementary
 
 function shiftHTriadComplementary(h) {
@@ -648,40 +545,6 @@ function complementaryArray() {
   return { color1, color2, color3, color4 };
 }
 
-function complementary() {
-  //color1
-  document.querySelector(
-    "#color1"
-  ).style.backgroundColor = complementaryArray().color1.hex;
-  document.querySelector(".hex1").textContent = complementaryArray().color1.hex;
-  document.querySelector(".rgb1").textContent = complementaryArray().color1.rgb;
-  document.querySelector(".hsl1").textContent = complementaryArray().color1.hsl;
-
-  //color2
-  document.querySelector(
-    "#color2"
-  ).style.backgroundColor = complementaryArray().color2.hex;
-  document.querySelector(".hex2").textContent = complementaryArray().color2.hex;
-  document.querySelector(".rgb2").textContent = complementaryArray().color2.rgb;
-  document.querySelector(".hsl2").textContent = complementaryArray().color2.hsl;
-
-  //color3
-  document.querySelector(
-    "#color3"
-  ).style.backgroundColor = complementaryArray().color3.hex;
-  document.querySelector(".hex3").textContent = complementaryArray().color3.hex;
-  document.querySelector(".rgb3").textContent = complementaryArray().color3.rgb;
-  document.querySelector(".hsl3").textContent = complementaryArray().color3.hsl;
-
-  //color4
-  document.querySelector(
-    "#color4"
-  ).style.backgroundColor = complementaryArray().color4.hex;
-  document.querySelector(".hex4").textContent = complementaryArray().color4.hex;
-  document.querySelector(".rgb4").textContent = complementaryArray().color4.rgb;
-  document.querySelector(".hsl4").textContent = complementaryArray().color4.hsl;
-}
-
 //Compund
 
 function compound() {
@@ -769,36 +632,36 @@ function shadesArray() {
   return { color1, color2, color3, color4 };
 }
 
-function shades() {
+function addColors(colorArray) {
   //color1
   document.querySelector(
     "#color1"
-  ).style.backgroundColor = shadesArray().color1.hex;
-  document.querySelector(".hex1").textContent = shadesArray().color1.hex;
-  document.querySelector(".rgb1").textContent = shadesArray().color1.rgb;
-  document.querySelector(".hsl1").textContent = shadesArray().color1.hsl;
+  ).style.backgroundColor = colorArray().color1.hex;
+  document.querySelector(".hex1").textContent = colorArray().color1.hex;
+  document.querySelector(".rgb1").textContent = colorArray().color1.rgb;
+  document.querySelector(".hsl1").textContent = colorArray().color1.hsl;
 
   //color2
   document.querySelector(
     "#color2"
-  ).style.backgroundColor = shadesArray().color2.hex;
-  document.querySelector(".hex2").textContent = shadesArray().color2.hex;
-  document.querySelector(".rgb2").textContent = shadesArray().color2.rgb;
-  document.querySelector(".hsl2").textContent = shadesArray().color2.hsl;
+  ).style.backgroundColor = colorArray().color2.hex;
+  document.querySelector(".hex2").textContent = colorArray().color2.hex;
+  document.querySelector(".rgb2").textContent = colorArray().color2.rgb;
+  document.querySelector(".hsl2").textContent = colorArray().color2.hsl;
 
   //color3
   document.querySelector(
     "#color3"
-  ).style.backgroundColor = shadesArray().color3.hex;
-  document.querySelector(".hex3").textContent = shadesArray().color3.hex;
-  document.querySelector(".rgb3").textContent = shadesArray().color3.rgb;
-  document.querySelector(".hsl3").textContent = shadesArray().color3.hsl;
+  ).style.backgroundColor = colorArray().color3.hex;
+  document.querySelector(".hex3").textContent = colorArray().color3.hex;
+  document.querySelector(".rgb3").textContent = colorArray().color3.rgb;
+  document.querySelector(".hsl3").textContent = colorArray().color3.hsl;
 
   //color4
   document.querySelector(
     "#color4"
-  ).style.backgroundColor = shadesArray().color4.hex;
-  document.querySelector(".hex4").textContent = shadesArray().color4.hex;
-  document.querySelector(".rgb4").textContent = shadesArray().color4.rgb;
-  document.querySelector(".hsl4").textContent = shadesArray().color4.hsl;
+  ).style.backgroundColor = colorArray().color4.hex;
+  document.querySelector(".hex4").textContent = colorArray().color4.hex;
+  document.querySelector(".rgb4").textContent = colorArray().color4.rgb;
+  document.querySelector(".hsl4").textContent = colorArray().color4.hsl;
 }
