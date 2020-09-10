@@ -136,6 +136,10 @@ function selectOption() {
     triad();
   } else if (selectScheme.value == "complementary") {
     complementary();
+  } else if (selectScheme.value == "compound") {
+    compound();
+  } else if (selectScheme.value == "shades") {
+    shades();
   }
 }
 
@@ -260,12 +264,12 @@ function shiftL(l) {
 
 function monochromaticArray() {
   let color1 = {
-    hex: hslToHex(getHSL().h, shiftS(getHSL().s).s1, getHSL().l),
-    hsl: `${getHSL().h}, ${shiftS(getHSL().s).s1}%, ${getHSL().l}%`,
+    hex: hslToHex(getHSL().h, shiftS(getHSL().s).s2, getHSL().l),
+    hsl: `${getHSL().h}, ${shiftS(getHSL().s).s2}%, ${getHSL().l}%`,
     rgb: `${
-      getRGB(hslToHex(getHSL().h, shiftS(getHSL().s).s1, getHSL().l)).r
-    }, ${getRGB(hslToHex(getHSL().h, shiftS(getHSL().s).s1, getHSL().l)).g}, ${
-      getRGB(hslToHex(getHSL().h, shiftS(getHSL().s).s1, getHSL().l)).b
+      getRGB(hslToHex(getHSL().h, shiftS(getHSL().s).s2, getHSL().l)).r
+    }, ${getRGB(hslToHex(getHSL().h, shiftS(getHSL().s).s2, getHSL().l)).g}, ${
+      getRGB(hslToHex(getHSL().h, shiftS(getHSL().s).s2, getHSL().l)).b
     }`,
   };
 
@@ -349,17 +353,17 @@ function shiftHTriadComplementary(h) {
 function triadArray() {
   let color1 = {
     hex: hslToHex(
-      shiftHTriad(getHSL().h).h120,
+      shiftHTriadComplementary(getHSL().h).h120,
       getHSL().s,
       shiftL(getHSL().l).l4
     ),
-    hsl: `${shiftHTriad(getHSL().h).h120}, ${getHSL().s}%, ${
+    hsl: `${shiftHTriadComplementary(getHSL().h).h120}, ${getHSL().s}%, ${
       shiftL(getHSL().l).l4
     }%`,
     rgb: `${
       getRGB(
         hslToHex(
-          shiftHTriad(getHSL().h).h120,
+          shiftHTriadComplementary(getHSL().h).h120,
           getHSL().s,
           shiftL(getHSL().l).l4
         )
@@ -367,7 +371,7 @@ function triadArray() {
     }, ${
       getRGB(
         hslToHex(
-          shiftHTriad(getHSL().h).h120,
+          shiftHTriadComplementary(getHSL().h).h120,
           getHSL().s,
           shiftL(getHSL().l).l4
         )
@@ -375,7 +379,7 @@ function triadArray() {
     }, ${
       getRGB(
         hslToHex(
-          shiftHTriad(getHSL().h).h120,
+          shiftHTriadComplementary(getHSL().h).h120,
           getHSL().s,
           shiftL(getHSL().l).l4
         )
@@ -384,49 +388,109 @@ function triadArray() {
   };
 
   let color2 = {
-    hex: hslToHex(shiftHTriad(getHSL().h).h60, getHSL().s, getHSL().l),
-    hsl: `${shiftHTriad(getHSL().h).h60}, ${getHSL().s}%, ${getHSL().l}%`,
+    hex: hslToHex(
+      shiftHTriadComplementary(getHSL().h).h60,
+      getHSL().s,
+      getHSL().l
+    ),
+    hsl: `${shiftHTriadComplementary(getHSL().h).h60}, ${getHSL().s}%, ${
+      getHSL().l
+    }%`,
     rgb: `${
-      getRGB(hslToHex(shiftHTriad(getHSL().h).h60, getHSL().s, getHSL().l)).r
+      getRGB(
+        hslToHex(
+          shiftHTriadComplementary(getHSL().h).h60,
+          getHSL().s,
+          getHSL().l
+        )
+      ).r
     }, ${
-      getRGB(hslToHex(shiftHTriad(getHSL().h).h60, getHSL().s, getHSL().l)).g
+      getRGB(
+        hslToHex(
+          shiftHTriadComplementary(getHSL().h).h60,
+          getHSL().s,
+          getHSL().l
+        )
+      ).g
     }, ${
-      getRGB(hslToHex(shiftHTriad(getHSL().h).h60, getHSL().s, getHSL().l)).b
+      getRGB(
+        hslToHex(
+          shiftHTriadComplementary(getHSL().h).h60,
+          getHSL().s,
+          getHSL().l
+        )
+      ).b
     }`,
   };
 
   let color3 = {
-    hex: hslToHex(shiftHTriad(getHSL().h).h120, getHSL().s, getHSL().l),
-    hsl: `${shiftHTriad(getHSL().h).h120}, ${getHSL().s}%, ${getHSL().l}%`,
+    hex: hslToHex(
+      shiftHTriadComplementary(getHSL().h).h120,
+      getHSL().s,
+      getHSL().l
+    ),
+    hsl: `${shiftHTriadComplementary(getHSL().h).h120}, ${getHSL().s}%, ${
+      getHSL().l
+    }%`,
     rgb: `${
-      getRGB(hslToHex(shiftHTriad(getHSL().h).h120, getHSL().s, getHSL().l)).r
+      getRGB(
+        hslToHex(
+          shiftHTriadComplementary(getHSL().h).h120,
+          getHSL().s,
+          getHSL().l
+        )
+      ).r
     }, ${
-      getRGB(hslToHex(shiftHTriad(getHSL().h).h120, getHSL().s, getHSL().l)).g
+      getRGB(
+        hslToHex(
+          shiftHTriadComplementary(getHSL().h).h120,
+          getHSL().s,
+          getHSL().l
+        )
+      ).g
     }, ${
-      getRGB(hslToHex(shiftHTriad(getHSL().h).h120, getHSL().s, getHSL().l)).b
+      getRGB(
+        hslToHex(
+          shiftHTriadComplementary(getHSL().h).h120,
+          getHSL().s,
+          getHSL().l
+        )
+      ).b
     }`,
   };
 
   let color4 = {
     hex: hslToHex(
-      shiftHTriad(getHSL().h).h60,
+      shiftHTriadComplementary(getHSL().h).h60,
       getHSL().s,
       shiftL(getHSL().l).l4
     ),
-    hsl: `${shiftHTriad(getHSL().h).h60}, ${getHSL().s}%, ${
+    hsl: `${shiftHTriadComplementary(getHSL().h).h60}, ${getHSL().s}%, ${
       shiftL(getHSL().l).l4
     }%`,
     rgb: `${
       getRGB(
-        hslToHex(shiftHTriad(getHSL().h).h60, getHSL().s, shiftL(getHSL().l).l4)
+        hslToHex(
+          shiftHTriadComplementary(getHSL().h).h60,
+          getHSL().s,
+          shiftL(getHSL().l).l4
+        )
       ).r
     }, ${
       getRGB(
-        hslToHex(shiftHTriad(getHSL().h).h60, getHSL().s, shiftL(getHSL().l).l4)
+        hslToHex(
+          shiftHTriadComplementary(getHSL().h).h60,
+          getHSL().s,
+          shiftL(getHSL().l).l4
+        )
       ).g
     }, ${
       getRGB(
-        hslToHex(shiftHTriad(getHSL().h).h60, getHSL().s, shiftL(getHSL().l).l4)
+        hslToHex(
+          shiftHTriadComplementary(getHSL().h).h60,
+          getHSL().s,
+          shiftL(getHSL().l).l4
+        )
       ).b
     }`,
   };
@@ -491,32 +555,34 @@ function complementaryArray() {
 
   let color2 = {
     hex: hslToHex(
-      shiftHTriad(getHSL().h).h180,
-      shiftS(getHSL().s).s3,
+      shiftHTriadComplementary(getHSL().h).h180,
+      shiftS(getHSL().s).s4,
       getHSL().l
     ),
-    hsl: `${shiftHTriad(getHSL().h).h180}, ${getHSL().s}%, ${getHSL().l}%`,
+    hsl: `${shiftHTriadComplementary(getHSL().h).h180}, ${
+      shiftS(getHSL().s).s4
+    }%, ${getHSL().l}%`,
     rgb: `${
       getRGB(
         hslToHex(
-          shiftHTriad(getHSL().h).h180,
-          shiftS(getHSL().s).s3,
+          shiftHTriadComplementary(getHSL().h).h180,
+          shiftS(getHSL().s).s4,
           getHSL().l
         )
       ).r
     }, ${
       getRGB(
         hslToHex(
-          shiftHTriad(getHSL().h).h180,
-          shiftS(getHSL().s).s3,
+          shiftHTriadComplementary(getHSL().h).h180,
+          shiftS(getHSL().s).s4,
           getHSL().l
         )
       ).g
     }, ${
       getRGB(
         hslToHex(
-          shiftHTriad(getHSL().h).h180,
-          shiftS(getHSL().s).s3,
+          shiftHTriadComplementary(getHSL().h).h180,
+          shiftS(getHSL().s).s4,
           getHSL().l
         )
       ).b
@@ -539,14 +605,38 @@ function complementaryArray() {
   };
 
   let color4 = {
-    hex: hslToHex(shiftHTriad(getHSL().h).h180, getHSL().s, getHSL().l),
-    hsl: `${shiftHTriad(getHSL().h).h180}, ${getHSL().s}%, ${getHSL().l}%`,
+    hex: hslToHex(
+      shiftHTriadComplementary(getHSL().h).h180,
+      getHSL().s,
+      getHSL().l
+    ),
+    hsl: `${shiftHTriadComplementary(getHSL().h).h180}, ${getHSL().s}%, ${
+      getHSL().l
+    }%`,
     rgb: `${
-      getRGB(hslToHex(shiftHTriad(getHSL().h).h180, getHSL().s, getHSL().l)).r
+      getRGB(
+        hslToHex(
+          shiftHTriadComplementary(getHSL().h).h180,
+          getHSL().s,
+          getHSL().l
+        )
+      ).r
     }, ${
-      getRGB(hslToHex(shiftHTriad(getHSL().h).h180, getHSL().s, getHSL().l)).g
+      getRGB(
+        hslToHex(
+          shiftHTriadComplementary(getHSL().h).h180,
+          getHSL().s,
+          getHSL().l
+        )
+      ).g
     }, ${
-      getRGB(hslToHex(shiftHTriad(getHSL().h).h180, getHSL().s, getHSL().l)).b
+      getRGB(
+        hslToHex(
+          shiftHTriadComplementary(getHSL().h).h180,
+          getHSL().s,
+          getHSL().l
+        )
+      ).b
     }`,
   };
 
@@ -585,4 +675,125 @@ function complementary() {
   document.querySelector(".hex4").textContent = complementaryArray().color4.hex;
   document.querySelector(".rgb4").textContent = complementaryArray().color4.rgb;
   document.querySelector(".hsl4").textContent = complementaryArray().color4.hsl;
+}
+
+//Compund
+
+function compound() {
+  //color1
+  document.querySelector(
+    "#color1"
+  ).style.backgroundColor = analogousArray().color1.hex;
+  document.querySelector(".hex1").textContent = analogousArray().color1.hex;
+  document.querySelector(".rgb1").textContent = analogousArray().color1.rgb;
+  document.querySelector(".hsl1").textContent = analogousArray().color1.hsl;
+
+  //color2
+  document.querySelector(
+    "#color2"
+  ).style.backgroundColor = complementaryArray().color2.hex;
+  document.querySelector(".hex2").textContent = complementaryArray().color2.hex;
+  document.querySelector(".rgb2").textContent = complementaryArray().color2.rgb;
+  document.querySelector(".hsl2").textContent = complementaryArray().color2.hsl;
+
+  //color3
+  document.querySelector(
+    "#color3"
+  ).style.backgroundColor = analogousArray().color3.hex;
+  document.querySelector(".hex3").textContent = analogousArray().color3.hex;
+  document.querySelector(".rgb3").textContent = analogousArray().color3.rgb;
+  document.querySelector(".hsl3").textContent = analogousArray().color3.hsl;
+
+  //color4
+  document.querySelector(
+    "#color4"
+  ).style.backgroundColor = complementaryArray().color4.hex;
+  document.querySelector(".hex4").textContent = complementaryArray().color4.hex;
+  document.querySelector(".rgb4").textContent = complementaryArray().color4.rgb;
+  document.querySelector(".hsl4").textContent = complementaryArray().color4.hsl;
+}
+
+//Shades
+
+function shadesArray() {
+  let color1 = {
+    hex: hslToHex(getHSL().h, getHSL().s, shiftL(getHSL().l).l1),
+    hsl: `${getHSL().h}, ${shiftS(getHSL().s).s1}%, ${shiftL(getHSL().l).l1}%`,
+    rgb: `${
+      getRGB(hslToHex(getHSL().h, shiftS(getHSL().s).s1, shiftL(getHSL().l).l1))
+        .r
+    }, ${
+      getRGB(hslToHex(getHSL().h, shiftS(getHSL().s).s1, shiftL(getHSL().l).l1))
+        .g
+    }, ${
+      getRGB(hslToHex(getHSL().h, shiftS(getHSL().s).s1, shiftL(getHSL().l).l1))
+        .b
+    }`,
+  };
+
+  let color2 = {
+    hex: hslToHex(getHSL().h, getHSL().s, shiftL(getHSL().l).l3),
+    hsl: `${getHSL().h}, ${getHSL().s}%, ${shiftL(getHSL().l).l3}%`,
+    rgb: `${
+      getRGB(hslToHex(getHSL().h, getHSL().s, shiftL(getHSL().l).l3)).r
+    }, ${getRGB(hslToHex(getHSL().h, getHSL().s, shiftL(getHSL().l).l3)).g}, ${
+      getRGB(hslToHex(getHSL().h, getHSL().s, shiftL(getHSL().l).l3)).b
+    }`,
+  };
+
+  let color3 = {
+    hex: hslToHex(getHSL().h, getHSL().s, shiftL(getHSL().l).l4),
+    hsl: `${getHSL().h}, ${getHSL().s}%, ${shiftL(getHSL().l).l4}%`,
+    rgb: `${
+      getRGB(hslToHex(getHSL().h, getHSL().s, shiftL(getHSL().l).l4)).r
+    }, ${getRGB(hslToHex(getHSL().h, getHSL().s, shiftL(getHSL().l).l4)).g}, ${
+      getRGB(hslToHex(getHSL().h, getHSL().s, shiftL(getHSL().l).l4)).b
+    }`,
+  };
+
+  let color4 = {
+    hex: hslToHex(getHSL().h, getHSL().s, shiftL(getHSL().l).l2),
+    hsl: `${getHSL().h}, ${getHSL().s}%, ${shiftL(getHSL().l).l2}%`,
+    rgb: `${
+      getRGB(hslToHex(getHSL().h, getHSL().s, shiftL(getHSL().l).l2)).r
+    }, ${getRGB(hslToHex(getHSL().h, getHSL().s, shiftL(getHSL().l).l2)).g}, ${
+      getRGB(hslToHex(getHSL().h, getHSL().s, shiftL(getHSL().l).l2)).b
+    }`,
+  };
+
+  return { color1, color2, color3, color4 };
+}
+
+function shades() {
+  //color1
+  document.querySelector(
+    "#color1"
+  ).style.backgroundColor = shadesArray().color1.hex;
+  document.querySelector(".hex1").textContent = shadesArray().color1.hex;
+  document.querySelector(".rgb1").textContent = shadesArray().color1.rgb;
+  document.querySelector(".hsl1").textContent = shadesArray().color1.hsl;
+
+  //color2
+  document.querySelector(
+    "#color2"
+  ).style.backgroundColor = shadesArray().color2.hex;
+  document.querySelector(".hex2").textContent = shadesArray().color2.hex;
+  document.querySelector(".rgb2").textContent = shadesArray().color2.rgb;
+  document.querySelector(".hsl2").textContent = shadesArray().color2.hsl;
+
+  //color3
+  document.querySelector(
+    "#color3"
+  ).style.backgroundColor = shadesArray().color3.hex;
+  document.querySelector(".hex3").textContent = shadesArray().color3.hex;
+  document.querySelector(".rgb3").textContent = shadesArray().color3.rgb;
+  document.querySelector(".hsl3").textContent = shadesArray().color3.hsl;
+
+  //color4
+  document.querySelector(
+    "#color4"
+  ).style.backgroundColor = shadesArray().color4.hex;
+  document.querySelector(".hex4").textContent = shadesArray().color4.hex;
+  document.querySelector(".rgb4").textContent = shadesArray().color4.rgb;
+  document.querySelector(".hsl4").textContent = shadesArray().color4.hsl;
 }
