@@ -1,21 +1,30 @@
 .wrapper {
+  width: 100vw;
   display: flex;
-  justify-content: center;
-  align-content: center;
+  justify-content: space-evenly;
+}
+
+.input-color {
+  width: 100%;
+  height: 50%;
+  text-align: center;
 }
 
 .colorpicker {
-  float: left;
   margin: 2em;
+  padding: 0;
   width: 10em;
+  height: 10em;
+  border: none;
 }
 
-.result {
-  margin: 2em;
-}
-
-.resultColor {
-  width: 10em;
-  height: 5em;
+.result > .picked-color,
+.color {
+  width: 7em;
+  height: 3em;
   border-radius: 5px;
+}
+
+.color {
+  background-color: rgb(65, 40, 40);
 }

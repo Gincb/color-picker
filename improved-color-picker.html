@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Improved Color Picker</title>
+  </head>
+  <body>
+    <select name="color-select" id="color-select">
+      <option value="">---</option>
+      <option value="analogous">Analogous</option>
+    </select>
+
+    <div class="input-color">
+      <input
+        type="color"
+        name="colorpicker"
+        id="colorpicker"
+        class="colorpicker"
+        value="#6495ed"
+      />
+    </div>
+    <div class="wrapper">
+      <div class="result">
+        <div id="color1" class="color1 color"></div>
+        <div>
+          <p>HEX: <span class="hex"></span></p>
+        </div>
+        <div>
+          <p>RGB: <span class="rgb"></span></p>
+        </div>
+        <div>
+          <p>HSL: <span class="hsl"></span></p>
+        </div>
+      </div>
+
+      <div class="result">
+        <div id="color2" class="color2 color"></div>
+        <div>
+          <p>HEX: <span class="hex"></span></p>
+        </div>
+        <div>
+          <p>RGB: <span class="rgb"></span></p>
+        </div>
+        <div>
+          <p>HSL: <span class="hsl"></span></p>
+        </div>
+      </div>
+
+      <div class="result picked">
+        <div id="picked-color" class="picked-color"></div>
+        <div>
+          <p>HEX: <span class="hex"></span></p>
+        </div>
+        <div>
+          <p>RGB: <span class="rgb"></span></p>
+        </div>
+        <div>
+          <p>HSL: <span class="hsl"></span></p>
+        </div>
+      </div>
+
+      <div class="result">
+        <div id="color3" class="color3 color"></div>
+        <div>
+          <p>HEX: <span class="hex"></span></p>
+        </div>
+        <div>
+          <p>RGB: <span class="rgb"></span></p>
+        </div>
+        <div>
+          <p>HSL: <span class="hsl"></span></p>
+        </div>
+      </div>
+
+      <div class="result">
+        <div id="color4" class="color4 color"></div>
+        <div>
+          <p>HEX: <span class="hex"></span></p>
+        </div>
+        <div>
+          <p>RGB: <span class="rgb"></span></p>
+        </div>
+        <div>
+          <p>HSL: <span class="hsl"></span></p>
+        </div>
+      </div>
+    </div>
+    <script src="improved-color-picker.js"></script>
+  </body>
+</html>
