@@ -1,7 +1,20 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #141414;
+  color: whitesmoke;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .wrapper {
-  width: 100vw;
+  margin: 0;
+  padding: 2em 0;
+  width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  border-top: 1px solid whitesmoke;
+  justify-content: center;
+  color: whitesmoke;
 }
 
 .input-color {
@@ -13,15 +26,24 @@
 .colorpicker {
   margin: 2em;
   padding: 0;
-  width: 15em;
+  width: 60em;
   height: 10em;
-  border: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-style: none;
 }
 
 .result > .picked-color,
 .color {
-  background-color: #000;
-  width: 15em;
+  width: 20vw;
   height: 8em;
-  border-radius: 5px;
+}
+
+#color-select {
+  width: 20em;
+  height: 3em;
+  padding: 0 2em 0 0;
+  border-color: #c2c2c2;
+  background-color: #141414;
+  color: whitesmoke;
 }

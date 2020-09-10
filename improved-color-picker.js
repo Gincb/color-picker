@@ -10,6 +10,7 @@ let resultHSL = document.querySelector(".hsl");
 
 function getDefaultColor() {
   colorPicker.addEventListener("change", getColor);
+  getColor();
 }
 
 function getColor() {
